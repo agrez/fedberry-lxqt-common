@@ -18,9 +18,10 @@ Requires: desktop-backgrounds-compat
 %endif
 Requires: dbus-x11
 #Requires: lxqt-theme
+BuildRequires: cmake
 BuildRequires: pkgconfig(Qt5Xdg)
 BuildRequires: pkgconfig(Qt5Help)
-BuildRequires: pkgconfig(lxqt) >= 0.10.0-4
+BuildRequires: pkgconfig(lxqt)
 BuildRequires: kf5-kwindowsystem-devel >= 5.5
 BuildRequires: desktop-file-utils
 
@@ -46,7 +47,7 @@ Provides: lxqt-theme = %{version}
 mkdir -p %{_target_platform}
 
 pushd %{_target_platform}
-	%{cmake_lxqt} ..
+	%{cmake} ..
 popd
 
 make %{?_smp_mflags} -C %{_target_platform}
