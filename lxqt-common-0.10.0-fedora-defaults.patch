@@ -1,0 +1,56 @@
+diff -u -r lxqt-common-0.10.0.orig/config/lxqt.conf lxqt-common-0.10.0/config/lxqt.conf
+--- lxqt-common-0.10.0.orig/config/lxqt.conf	2015-10-08 13:38:12.000000000 -0300
++++ lxqt-common-0.10.0/config/lxqt.conf	2015-11-02 15:28:46.736988441 -0200
+@@ -1,11 +1,14 @@
+ [General]
+-theme=frost
++theme=Fedora
+ icon_theme=oxygen
+ single_click_activate=false
+ tool_button_style=ToolButtonTextBesideIcon
+ 
+ [Qt]
+-font="Sans,11,-1,5,50,0,0,0,0,0"
++font="Sans,10,-1,5,50,0,0,0,0,0"
+ doubleClickInterval=400
+-style=Fusion
++style=Oxygen
+ wheelScrollLines=3
++
++[Mouse]
++cursor_theme=Oxygen_White
+diff -u -r lxqt-common-0.10.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in
+--- lxqt-common-0.10.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in	2015-10-08 13:38:12.000000000 -0300
++++ lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in	2015-11-02 15:30:10.999418858 -0200
+@@ -4,8 +4,8 @@
+ TerminalCommand=
+ Archiver=file-roller
+ SIUnit=false
+-TerminalDirCommand=xterm
+-TerminalExecCommand=xterm -e %s
++TerminalDirCommand=qterminal
++TerminalExecCommand=qterminal -e %s
+ 
+ [Behavior]
+ BookmarkOpenMethod=0
+@@ -15,7 +15,7 @@
+ 
+ [Desktop]
+ WallpaperMode=stretch
+-Wallpaper=@LXQT_SHARE_DIR@/themes/frost/numix.png
++Wallpaper=/usr/share/backgrounds/default.png
+ BgColor=#000000
+ FgColor=#ffffff
+ ShadowColor=#000000
+diff -u -r lxqt-common-0.10.0.orig/startlxqt.in lxqt-common-0.10.0/startlxqt.in
+--- lxqt-common-0.10.0.orig/startlxqt.in	2015-10-08 13:38:12.000000000 -0300
++++ lxqt-common-0.10.0/startlxqt.in	2015-11-02 15:30:40.954571905 -0200
+@@ -62,7 +62,7 @@
+ # use lxqt-applications.menu for main app menu
+ export XDG_MENU_PREFIX="lxqt-"
+ 
+-export XDG_CURRENT_DESKTOP="LXQt"
++export XDG_CURRENT_DESKTOP="X-LXQt"
+ 
+ # Start the LXQt session
+ exec lxqt-session
