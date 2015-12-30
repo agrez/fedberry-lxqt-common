@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.10.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org/
 BuildArch: noarch
@@ -13,11 +13,11 @@ Patch2:  lxqt-common-0.10.0-policykit-libexec.patch
 Requires: oxygen-cursor-themes
 Requires: oxygen-icon-theme
 %if 0%{?fedora}
-Requires: fedora-logos
+#Requires: fedora-logos
 Requires: desktop-backgrounds-compat
 %endif
 Requires: dbus-x11
-Requires: lxqt-theme
+#Requires: lxqt-theme
 BuildRequires: pkgconfig(Qt5Xdg)
 BuildRequires: pkgconfig(Qt5Help)
 BuildRequires: pkgconfig(lxqt) >= 0.10.0-4
@@ -101,6 +101,13 @@ fi
 %endif
 
 %changelog
+* Wed Dec 30 2015 Vaughan <devel at agrez.net> - 0.10-6
+- Drop Requires for fedora-logos (it breaks 'generic' remixes)
+- Drop Requires for lxqt-theme
+- Update fedora_defaults patch
+  * don't default to fedora's theme
+  * default terminal commands now use qterminal-qt5
+
 * Sun Dec 13 2015 Helio Chissini de Castro <helio@kde.org> - 0.10.1-5
 - Use regular theme under epel for now
 
