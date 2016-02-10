@@ -1,29 +1,44 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.10.0
-Release: 6%{?dist}
+Release: 9%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org/
-BuildArch: noarch
+
 Source0: http://downloads.lxqt.org/lxqt/%{version}/lxqt-common-%{version}.tar.xz
 Source1: lxqt-theme-fedora.tar.xz 
-Patch0:  lxqt-common-0.10.0-fedora-defaults.patch
-Patch1:  lxqt-common-0.10.0-missing-entry.patch
-Patch2:  lxqt-common-0.10.0-policykit-libexec.patch
+
+Patch0:  %{name}-%{version}-fedora-defaults.patch
+Patch1:  %{name}-%{version}-missing-entry.patch
+Patch2:  %{name}-%{version}-policykit-libexec.patch
+Patch3:  %{name}-%{version}-menu-redhat.patch
+
+BuildArch: noarch
+
+BuildRequires: pkgconfig(Qt5Xdg)
+BuildRequires: pkgconfig(Qt5Help)
+BuildRequires: kf5-kwindowsystem-devel >= 5.5
+
+# be careful with %%cmake_lxqt available in lxqt-devel release 4
+BuildRequires: liblxqt-devel >= 0.10.0-4
+
+BuildRequires: cmake
+BuildRequires: desktop-file-utils
+
 Requires: oxygen-cursor-themes
 Requires: oxygen-icon-theme
+
 %if 0%{?fedora}
+Requires: redhat-menus
 #Requires: fedora-logos
 Requires: desktop-backgrounds-compat
 %endif
+
 Requires: dbus-x11
 #Requires: lxqt-theme
-BuildRequires: cmake
-BuildRequires: pkgconfig(Qt5Xdg)
-BuildRequires: pkgconfig(Qt5Help)
-BuildRequires: pkgconfig(lxqt)
-BuildRequires: kf5-kwindowsystem-devel >= 5.5
-BuildRequires: desktop-file-utils
+
+# rhbz#1252581 - Panel does not show main menu entries
+Requires: lxmenu-data
 
 %description
 %{summary}.
@@ -35,6 +50,7 @@ Provides: lxqt-theme = %{version}
 %description -n lxqt-theme-fedora
 %{summary}.
 
+
 %prep
 %setup -q
 %if 0%{?fedora}
@@ -42,29 +58,30 @@ Provides: lxqt-theme = %{version}
 %endif
 %patch1 -p1 -b .missing
 %patch2 -p1 -b .policykit
+%if 0%{?fedora}
+%patch3 -p0 -b .menu-redhat
+%endif
 
 %build
 mkdir -p %{_target_platform}
-
 pushd %{_target_platform}
-	%{cmake} ..
+	%{cmake_lxqt} ..
 popd
-
-make %{?_smp_mflags} -C %{_target_platform}
+%make_build -C %{_target_platform}
 
 %install
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
-
-desktop-file-validate %{buildroot}/%{_datadir}/xsessions/lxqt.desktop
-
 for desktop in %{buildroot}%{_sysconfdir}/xdg/autostart/*.desktop; do
 	desktop-file-edit --remove-only-show-in=LXQt --add-only-show-in=X-LXQt ${desktop}
 done
-
 # Fedora theme
 pushd %{buildroot}/%{_datadir}/lxqt/themes/ 
 	tar	xfJ %{SOURCE1}
 popd
+
+%check
+desktop-file-validate %{buildroot}/%{_datadir}/xsessions/lxqt.desktop
+
 
 %posttrans
 update-desktop-database -q &> /dev/null || :
@@ -101,7 +118,18 @@ fi
 %{_datadir}/lxqt/themes/Fedora/*
 %endif
 
+
 %changelog
+* Wed Feb 10 2016 Vaughan <devel at agrez.net> - 0.10-9
+- Sync with upstream package changes
+  * fix empty panel menu, rhbz#1252581
+  * fix menu patch
+  * patch for RedHat special submenu Administration, rhbz#1217565
+  * add Requires: redhat-menus for the Administration category
+  * restructure for better readability
+  * add BR: cmake
+- Bump release
+  
 * Wed Dec 30 2015 Vaughan <devel at agrez.net> - 0.10-6
 - Drop Requires for fedora-logos (it breaks 'generic' remixes)
 - Drop Requires for lxqt-theme
@@ -138,7 +166,7 @@ fi
 - New 0.9 series patch release to fix issues related to 0.9.0.
 
 * Wed Feb 11 2015 Helio Chissini de Castro <helio@kde.org> - 0.9.0-5
-- Assign ownership of %{_datadir}/lxqt to lxqt-common
+- Assign ownership of %%{_datadir}/lxqt
 
 * Tue Feb 10 2015 Helio Chissini de Castro <helio@kde.org> - 0.9.0-4
 - startlxqt tries to launch dbus-session, so it need requires dbus-x11
