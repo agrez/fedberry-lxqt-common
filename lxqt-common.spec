@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.10.0
-Release: 9%{?dist}
+Release: 11%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org/
 
@@ -22,7 +22,6 @@ BuildRequires: kf5-kwindowsystem-devel >= 5.5
 # be careful with %%cmake_lxqt available in lxqt-devel release 4
 BuildRequires: liblxqt-devel >= 0.10.0-4
 
-BuildRequires: cmake
 BuildRequires: desktop-file-utils
 
 Requires: oxygen-cursor-themes
@@ -120,6 +119,12 @@ fi
 
 
 %changelog
+* Fri Aug 26 2016 Vaughan <devel at agrez.net> - 0.10-11
+- Bump release
+- Sync with upstream package changes
+  * lxqt.conf: add fixedFont=Monospace (#1330150)
+  * drop explicit BR: cmake (dep pulled in via use of %%cmake_lxqt macro)
+
 * Wed Feb 10 2016 Vaughan <devel at agrez.net> - 0.10-9
 - Sync with upstream package changes
   * fix empty panel menu, rhbz#1252581
