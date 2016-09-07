@@ -1,14 +1,14 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.10.0
-Release: 11%{?dist}
+Release: 12%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org/
 
 Source0: http://downloads.lxqt.org/lxqt/%{version}/lxqt-common-%{version}.tar.xz
-Source1: lxqt-theme-fedora.tar.xz 
+Source1: lxqt-theme-fedberry.tar.xz 
 
-Patch0:  %{name}-%{version}-fedora-defaults.patch
+Patch0:  %{name}-%{version}-fedberry-defaults.patch
 Patch1:  %{name}-%{version}-missing-entry.patch
 Patch2:  %{name}-%{version}-policykit-libexec.patch
 Patch3:  %{name}-%{version}-menu-redhat.patch
@@ -29,12 +29,12 @@ Requires: oxygen-icon-theme
 
 %if 0%{?fedora}
 Requires: redhat-menus
-#Requires: fedora-logos
+Requires: fedberry-logos
 Requires: desktop-backgrounds-compat
 %endif
 
 Requires: dbus-x11
-#Requires: lxqt-theme
+Requires: lxqt-theme
 
 # rhbz#1252581 - Panel does not show main menu entries
 Requires: lxmenu-data
@@ -42,18 +42,18 @@ Requires: lxmenu-data
 %description
 %{summary}.
 
-%package -n lxqt-theme-fedora
-Summary: Default Fedora theme for LXQt
+%package -n lxqt-theme-fedberry
+Summary: Default FedBerry theme for LXQt
 Provides: lxqt-theme = %{version} 
 
-%description -n lxqt-theme-fedora
+%description -n lxqt-theme-fedberry
 %{summary}.
 
 
 %prep
 %setup -q
 %if 0%{?fedora}
-%patch0 -p1 -b .fedora_defaults
+%patch0 -p1 -b .fedberry-defaults
 %endif
 %patch1 -p1 -b .missing
 %patch2 -p1 -b .policykit
@@ -108,17 +108,21 @@ fi
 %{_datadir}/desktop-directories/lxqt-leave.directory
 %{_datadir}/icons/hicolor/*/*/*
 %exclude %{_datadir}/apps/kdm/sessions/lxqt.desktop
-%exclude %{_datadir}/lxqt/themes/Fedora
+%exclude %{_datadir}/lxqt/themes/fedberry
 %exclude %{_datadir}/kdm/sessions/lxqt.desktop
 
 %if 0%{?fedora}
-%files -n lxqt-theme-fedora
-%dir %{_datadir}/lxqt/themes/Fedora
-%{_datadir}/lxqt/themes/Fedora/*
+%files -n lxqt-theme-fedberry
+%dir %{_datadir}/lxqt/themes/fedberry
+%{_datadir}/lxqt/themes/fedberry/*
 %endif
 
 
 %changelog
+* Wed Sep 07 2016 Vaughan <devel at agrez.net> - 0.10-12
+- Add fedberry lxqt theme (source1)
+- Update defaults
+
 * Fri Aug 26 2016 Vaughan <devel at agrez.net> - 0.10-11
 - Bump release
 - Sync with upstream package changes
