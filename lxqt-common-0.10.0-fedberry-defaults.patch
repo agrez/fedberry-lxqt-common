@@ -1,0 +1,57 @@
+diff -up lxqt-common-0.10.0/config/lxqt.conf.fedora_defaults lxqt-common-0.10.0/config/lxqt.conf
+--- lxqt-common-0.10.0/config/lxqt.conf.fedora_defaults	2015-10-08 11:38:12.000000000 -0500
++++ lxqt-common-0.10.0/config/lxqt.conf	2016-04-28 11:23:04.348893500 -0500
+@@ -1,11 +1,15 @@
+ [General]
+-theme=frost
++theme=fedberry
+ icon_theme=oxygen
+ single_click_activate=false
+ tool_button_style=ToolButtonTextBesideIcon
+ 
+ [Qt]
+-font="Sans,11,-1,5,50,0,0,0,0,0"
++fixedFont="Monospace,10,-1,5,50,0,0,0,0,0"
++font="Sans,10,-1,5,50,0,0,0,0,0"
+ doubleClickInterval=400
+-style=Fusion
++style=Oxygen
+ wheelScrollLines=3
++
++[Mouse]
++cursor_theme=Oxygen_White
+diff -up lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in.fedora_defaults lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in
+--- lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in.fedora_defaults	2015-10-08 11:38:12.000000000 -0500
++++ lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in	2016-04-28 11:21:51.061479776 -0500
+@@ -4,8 +4,8 @@ SuCommand=gksu %s
+ TerminalCommand=
+ Archiver=file-roller
+ SIUnit=false
+-TerminalDirCommand=xterm
+-TerminalExecCommand=xterm -e %s
++TerminalDirCommand=qterminal-qt5
++TerminalExecCommand=qterminal-qt5 -e %s
+ 
+ [Behavior]
+ BookmarkOpenMethod=0
+@@ -15,7 +15,7 @@ ConfirmDelete=true
+ 
+ [Desktop]
+ WallpaperMode=stretch
+-Wallpaper=@LXQT_SHARE_DIR@/themes/frost/numix.png
++Wallpaper=/usr/share/backgrounds/default.png
+ BgColor=#000000
+ FgColor=#ffffff
+ ShadowColor=#000000
+diff -up lxqt-common-0.10.0/startlxqt.in.fedora_defaults lxqt-common-0.10.0/startlxqt.in
+--- lxqt-common-0.10.0/startlxqt.in.fedora_defaults	2015-10-08 11:38:12.000000000 -0500
++++ lxqt-common-0.10.0/startlxqt.in	2016-04-28 11:21:51.061479776 -0500
+@@ -62,7 +62,7 @@ export QT_QPA_PLATFORMTHEME=lxqt
+ # use lxqt-applications.menu for main app menu
+ export XDG_MENU_PREFIX="lxqt-"
+ 
+-export XDG_CURRENT_DESKTOP="LXQt"
++export XDG_CURRENT_DESKTOP="X-LXQt"
+ 
+ # Start the LXQt session
+ exec lxqt-session
