@@ -1,7 +1,7 @@
-diff -up lxqt-common-0.10.0/config/lxqt.conf.fedora_defaults lxqt-common-0.10.0/config/lxqt.conf
---- lxqt-common-0.10.0/config/lxqt.conf.fedora_defaults	2015-10-08 11:38:12.000000000 -0500
-+++ lxqt-common-0.10.0/config/lxqt.conf	2016-04-28 11:23:04.348893500 -0500
-@@ -1,11 +1,15 @@
+diff -U 3 -dHrN -- lxqt-common-0.10.0.orig/config/lxqt.conf lxqt-common-0.10.0/config/lxqt.conf
+--- lxqt-common-0.10.0.orig/config/lxqt.conf	2015-10-09 00:38:12.000000000 +0800
++++ lxqt-common-0.10.0/config/lxqt.conf	2016-09-07 15:36:50.083085435 +0800
+@@ -1,11 +1,12 @@
  [General]
 -theme=frost
 +theme=fedberry
@@ -14,27 +14,30 @@ diff -up lxqt-common-0.10.0/config/lxqt.conf.fedora_defaults lxqt-common-0.10.0/
 +fixedFont="Monospace,10,-1,5,50,0,0,0,0,0"
 +font="Sans,10,-1,5,50,0,0,0,0,0"
  doubleClickInterval=400
--style=Fusion
-+style=Oxygen
+ style=Fusion
  wheelScrollLines=3
-+
-+[Mouse]
-+cursor_theme=Oxygen_White
-diff -up lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in.fedora_defaults lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in
---- lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in.fedora_defaults	2015-10-08 11:38:12.000000000 -0500
-+++ lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in	2016-04-28 11:21:51.061479776 -0500
-@@ -4,8 +4,8 @@ SuCommand=gksu %s
- TerminalCommand=
- Archiver=file-roller
+diff -U 3 -dHrN -- lxqt-common-0.10.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in
+--- lxqt-common-0.10.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in	2015-10-09 00:38:12.000000000 +0800
++++ lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in	2016-09-13 09:07:35.602840351 +0800
+@@ -1,12 +1,11 @@
+ [System]
+ IconThemeName=elementary
+-SuCommand=gksu %s
+-TerminalCommand=
+-Archiver=file-roller
++SuCommand=lxqt-sudo -s %s
++TerminalCommand=qterminal-qt5
++Archiver=xarchiver
  SIUnit=false
 -TerminalDirCommand=xterm
 -TerminalExecCommand=xterm -e %s
+-
 +TerminalDirCommand=qterminal-qt5
 +TerminalExecCommand=qterminal-qt5 -e %s
- 
  [Behavior]
  BookmarkOpenMethod=0
-@@ -15,7 +15,7 @@ ConfirmDelete=true
+ UseTrash=true
+@@ -15,12 +14,12 @@
  
  [Desktop]
  WallpaperMode=stretch
@@ -43,10 +46,43 @@ diff -up lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in.fedora_defau
  BgColor=#000000
  FgColor=#ffffff
  ShadowColor=#000000
-diff -up lxqt-common-0.10.0/startlxqt.in.fedora_defaults lxqt-common-0.10.0/startlxqt.in
---- lxqt-common-0.10.0/startlxqt.in.fedora_defaults	2015-10-08 11:38:12.000000000 -0500
-+++ lxqt-common-0.10.0/startlxqt.in	2016-04-28 11:21:51.061479776 -0500
-@@ -62,7 +62,7 @@ export QT_QPA_PLATFORMTHEME=lxqt
+ ShowHidden=false
+-SortOrder=descending
++SortOrder=ascending
+ SortColumn=name
+ Font="Sans Serif,10,-1,5,50,0,0,0,0,0"
+ 
+@@ -32,7 +31,7 @@
+ [FolderView]
+ Mode=icon
+ ShowHidden=false
+-SortOrder=descending
++SortOrder=ascending
+ SortColumn=name
+ BigIconSize=48
+ SmallIconSize=24
+diff -U 3 -dHrN -- lxqt-common-0.10.0.orig/config/session.conf lxqt-common-0.10.0/config/session.conf
+--- lxqt-common-0.10.0.orig/config/session.conf	2015-10-09 00:38:12.000000000 +0800
++++ lxqt-common-0.10.0/config/session.conf	2016-09-07 14:59:00.993347116 +0800
+@@ -3,11 +3,13 @@
+ leave_confirmation=true
+ 
+ [Environment]
++BROWSER=qupzilla
+ GTK_CSD=0
++TERM=qterminal-qt5
+ 
+ [Mouse]
+ cursor_size=18
+-cursor_theme=whiteglass
++cursor_theme=Breeze_Snow
+ acc_factor=20
+ acc_threshold=10
+ left_handed=false
+diff -U 3 -dHrN -- lxqt-common-0.10.0.orig/startlxqt.in lxqt-common-0.10.0/startlxqt.in
+--- lxqt-common-0.10.0.orig/startlxqt.in	2015-10-09 00:38:12.000000000 +0800
++++ lxqt-common-0.10.0/startlxqt.in	2016-09-07 15:00:13.794502245 +0800
+@@ -62,7 +62,7 @@
  # use lxqt-applications.menu for main app menu
  export XDG_MENU_PREFIX="lxqt-"
  
