@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.10.0
-Release: 14%{?dist}
+Release: 15%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org/
 
@@ -119,6 +119,9 @@ fi
 
 
 %changelog
+* Mon Sep 19 2016 Vaughan <devel at agrez.net> - 0.10-15
+- Update fedberry defaults patch
+
 * Tue Sep 13 2016 Vaughan <devel at agrez.net> - 0.10-14
 - More fedberry defaults fixes / updates
 

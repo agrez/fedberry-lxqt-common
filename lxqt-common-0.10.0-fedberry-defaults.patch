@@ -18,7 +18,7 @@ diff -U 3 -dHrN -- lxqt-common-0.10.0.orig/config/lxqt.conf lxqt-common-0.10.0/c
  wheelScrollLines=3
 diff -U 3 -dHrN -- lxqt-common-0.10.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in
 --- lxqt-common-0.10.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in	2015-10-09 00:38:12.000000000 +0800
-+++ lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in	2016-09-13 09:07:35.602840351 +0800
++++ lxqt-common-0.10.0/config/pcmanfm-qt/lxqt/settings.conf.in	2016-09-19 21:36:20.105350963 +0800
 @@ -1,12 +1,11 @@
  [System]
  IconThemeName=elementary
@@ -42,8 +42,9 @@ diff -U 3 -dHrN -- lxqt-common-0.10.0.orig/config/pcmanfm-qt/lxqt/settings.conf.
  [Desktop]
  WallpaperMode=stretch
 -Wallpaper=@LXQT_SHARE_DIR@/themes/frost/numix.png
+-BgColor=#000000
 +Wallpaper=/usr/share/backgrounds/default.png
- BgColor=#000000
++BgColor=#2e5ea1
  FgColor=#ffffff
  ShadowColor=#000000
  ShowHidden=false
