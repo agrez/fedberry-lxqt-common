@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
-Version: 0.10.0
-Release: 15%{?dist}
+Version: 0.11.0
+Release: 1%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org/
 
@@ -15,12 +15,10 @@ Patch3:  %{name}-%{version}-menu-redhat.patch
 
 BuildArch: noarch
 
+BuildRequires: liblxqt-devel >= 0.11.0
 BuildRequires: pkgconfig(Qt5Xdg)
 BuildRequires: pkgconfig(Qt5Help)
 BuildRequires: kf5-kwindowsystem-devel >= 5.5
-
-# be careful with %%cmake_lxqt available in lxqt-devel release 4
-BuildRequires: liblxqt-devel >= 0.10.0-4
 
 BuildRequires: desktop-file-utils
 
@@ -31,10 +29,10 @@ Requires: oxygen-icon-theme
 Requires: redhat-menus
 Requires: fedberry-logos
 Requires: desktop-backgrounds-compat
+Requires: lxqt-theme
 %endif
 
 Requires: dbus-x11
-Requires: lxqt-theme
 
 # rhbz#1252581 - Panel does not show main menu entries
 Requires: lxmenu-data
@@ -58,13 +56,13 @@ Provides: lxqt-theme = %{version}
 %patch1 -p1 -b .missing
 %patch2 -p1 -b .policykit
 %if 0%{?fedora}
-%patch3 -p0 -b .menu-redhat
+%patch3 -p1 -b .menu-redhat
 %endif
 
 %build
 mkdir -p %{_target_platform}
 pushd %{_target_platform}
-	%{cmake_lxqt} ..
+    %{cmake_lxqt} ..
 popd
 %make_build -C %{_target_platform}
 
@@ -73,7 +71,7 @@ make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
 for desktop in %{buildroot}%{_sysconfdir}/xdg/autostart/*.desktop; do
 	desktop-file-edit --remove-only-show-in=LXQt --add-only-show-in=X-LXQt ${desktop}
 done
-# Fedora theme
+# FedBerry theme
 pushd %{buildroot}/%{_datadir}/lxqt/themes/ 
 	tar	xfJ %{SOURCE1}
 popd
@@ -92,7 +90,7 @@ fi
 
 
 %files
-%{_bindir}/startlxqt	
+%{_bindir}/startlxqt
 %dir %{_sysconfdir}/xdg/lxqt
 %{_sysconfdir}/xdg/autostart/lxqt-*
 %config(noreplace) %{_sysconfdir}/xdg/lxqt/*
@@ -102,23 +100,28 @@ fi
 %dir %{_datadir}/lxqt
 %{_datadir}/lxqt/themes
 %{_datadir}/lxqt/graphics
-%{_datadir}/lxqt/openbox
 %{_datadir}/desktop-directories/lxqt-settings.directory
 %{_sysconfdir}/xdg/menus/lxqt-applications.menu
 %{_datadir}/desktop-directories/lxqt-leave.directory
 %{_datadir}/icons/hicolor/*/*/*
-%exclude %{_datadir}/apps/kdm/sessions/lxqt.desktop
+%if 0%{?fedora}
 %exclude %{_datadir}/lxqt/themes/fedberry
+%endif
 %exclude %{_datadir}/kdm/sessions/lxqt.desktop
-
 %if 0%{?fedora}
 %files -n lxqt-theme-fedberry
 %dir %{_datadir}/lxqt/themes/fedberry
 %{_datadir}/lxqt/themes/fedberry/*
 %endif
+%{_sysconfdir}/xdg/openbox/lxqt-rc.xml
+%{_mandir}//man1/startlxqt.*
 
 
 %changelog
+* Sun Oct 16 2016 Vaughan <devel at agrez.net> - 0.11-1
+- New release
+- Update/refactor patches
+
 * Mon Sep 19 2016 Vaughan <devel at agrez.net> - 0.10-15
 - Update fedberry defaults patch
 
