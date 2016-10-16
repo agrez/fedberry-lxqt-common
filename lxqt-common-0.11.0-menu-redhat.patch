@@ -1,5 +1,5 @@
---- menu/lxqt-applications.menu.old	2016-01-15 19:49:25.585778613 +0100
-+++ menu/lxqt-applications.menu	2016-01-15 20:02:23.879173610 +0100
+--- lxqt-common-0.11.0/menu/lxqt-applications.menu.orig	2016-09-24 00:44:22.000000000 +0200
++++ lxqt-common-0.11.0/menu/lxqt-applications.menu	2016-09-25 15:52:13.745042586 +0200
 @@ -13,6 +13,26 @@
  	<!-- Read in overrides and child menus from applications-merged/ -->
  	<DefaultMergeDirs/>
@@ -32,6 +32,6 @@
  				<Not><Category>Settings</Category></Not>
  				<Not><Category>PackageManager</Category></Not>
 +				<Not><Category>X-Red-Hat-ServerConfig</Category></Not>
- 			</And>
- 		</Include>
- 	</Menu>	 <!-- End System Tools -->
+ 				<Not><Category>X-Leave</Category></Not>
+ 				<Not><Category>Screensaver</Category></Not>
+ 				<Not><Filename>lxqt-about.desktop</Filename></Not>
