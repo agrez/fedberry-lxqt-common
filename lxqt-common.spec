@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.11.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org/
 
@@ -51,7 +51,7 @@ Provides: lxqt-theme = %{version}
 %prep
 %setup -q
 %if 0%{?fedora}
-%patch0 -p1 -b .fedberry-defaults
+%patch0 -p1
 %endif
 %patch1 -p1 -b .missing
 %patch2 -p1 -b .policykit
@@ -102,6 +102,7 @@ fi
 %{_datadir}/lxqt/graphics
 %{_datadir}/desktop-directories/lxqt-settings.directory
 %{_sysconfdir}/xdg/menus/lxqt-applications.menu
+%{_sysconfdir}/xdg/openbox/lxqt-rc.xml
 %{_datadir}/desktop-directories/lxqt-leave.directory
 %{_datadir}/icons/hicolor/*/*/*
 %if 0%{?fedora}
@@ -113,11 +114,14 @@ fi
 %dir %{_datadir}/lxqt/themes/fedberry
 %{_datadir}/lxqt/themes/fedberry/*
 %endif
-%{_sysconfdir}/xdg/openbox/lxqt-rc.xml
-%{_mandir}//man1/startlxqt.*
+%{_mandir}/man1/startlxqt.*
 
 
 %changelog
+* Tue Oct 18 2016 Vaughan <devel at agrez.net> - 0.11-3
+- Move lxqt-rc.xml to main package
+- Update fedberry defaults patch
+
 * Sun Oct 16 2016 Vaughan <devel at agrez.net> - 0.11-2
 - Bump release & rebuild
 
