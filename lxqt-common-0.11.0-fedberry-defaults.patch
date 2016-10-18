@@ -16,22 +16,34 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/lxqt.conf lxqt-common-0.11.0/c
  doubleClickInterval=400
  style=Fusion
  wheelScrollLines=3
+diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/openbox/lxqt-rc.xml lxqt-common-0.11.0/config/openbox/lxqt-rc.xml
+--- lxqt-common-0.11.0.orig/config/openbox/lxqt-rc.xml	2016-09-24 06:44:22.000000000 +0800
++++ lxqt-common-0.11.0/config/openbox/lxqt-rc.xml	2016-10-18 09:15:29.098500693 +0800
+@@ -49,7 +49,7 @@
+ </placement>
+ 
+ <theme>
+-  <name>Onyx</name>
++  <name>Bear2</name>
+   <titleLayout>NLIMC</titleLayout>
+   <!--
+       available characters are NDSLIMC, each can occur at most once.
 diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in lxqt-common-0.11.0/config/pcmanfm-qt/lxqt/settings.conf.in
 --- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in	2016-09-24 06:44:22.000000000 +0800
-+++ lxqt-common-0.11.0/config/pcmanfm-qt/lxqt/settings.conf.in	2016-10-16 12:01:38.922114410 +0800
++++ lxqt-common-0.11.0/config/pcmanfm-qt/lxqt/settings.conf.in	2016-10-18 09:17:27.131790364 +0800
 @@ -1,11 +1,11 @@
  [System]
  IconThemeName=elementary
  SuCommand=lxqt-sudo %s
 -TerminalCommand=
 -Archiver=file-roller
-+TerminalCommand=qterminal-qt5
++TerminalCommand=qterminal
 +Archiver=xarchiver
  SIUnit=false
 -TerminalDirCommand=xterm
 -TerminalExecCommand=xterm -e %s
-+TerminalDirCommand=qterminal-qt5
-+TerminalExecCommand=qterminal-qt5 -e %s
++TerminalDirCommand=qterminal
++TerminalExecCommand=qterminal -e %s
  
  [Behavior]
  BookmarkOpenMethod=0
@@ -48,13 +60,13 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.
  ShowHidden=false
 diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/session.conf lxqt-common-0.11.0/config/session.conf
 --- lxqt-common-0.11.0.orig/config/session.conf	2016-09-24 06:44:22.000000000 +0800
-+++ lxqt-common-0.11.0/config/session.conf	2016-10-16 12:02:57.323360448 +0800
++++ lxqt-common-0.11.0/config/session.conf	2016-10-18 09:17:03.801733107 +0800
 @@ -5,10 +5,12 @@
  [Environment]
  GTK_CSD=0
  GTK_OVERLAY_SCROLLING=0
 +BROWSER=qupzilla
-+TERM=qterminal-qt5
++TERM=qterminal
  
  [Mouse]
  cursor_size=18
