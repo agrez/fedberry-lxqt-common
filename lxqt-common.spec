@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.11.2
-Release: 1%{?dist}
+Release: 3%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org
 BuildArch: noarch
@@ -115,7 +115,10 @@ fi
 
 
 %changelog
-* Fri Feb 03 2017 Vaughan <devel at agrez.net> - 0.11.2-1
+* Sat Feb 04 2017 Vaughan <devel at agrez.net> - 0.11.2-3
+- Bump release to keep above fedora releases
+
+* Sat Feb 04 2017 Vaughan <devel at agrez.net> - 0.11.2-1
 - New release
 - Add buildrequires for lxqt-build-tools
 - Add requires for breeze-cursor-theme
