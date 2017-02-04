@@ -1,28 +1,25 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
-Version: 0.11.0
-Release: 3%{?dist}
+Version: 0.11.2
+Release: 1%{?dist}
 License: LGPLv2+
-URL:     http://lxqt.org/
-
-Source0: http://downloads.lxqt.org/lxqt/%{version}/%{name}-%{version}.tar.xz
-Source1: lxqt-theme-fedberry.tar.xz 
-
-Patch0:  %{name}-%{version}-fedberry-defaults.patch
-Patch1:  %{name}-%{version}-missing-entry.patch
-Patch2:  %{name}-%{version}-policykit-libexec.patch
-Patch3:  %{name}-%{version}-menu-redhat.patch
-
+URL:     http://lxqt.org
 BuildArch: noarch
+Source0: https://github.com/lxde/%{name}/releases/download/%{version}/%{name}-%{version}.tar.xz
+Source1: lxqt-theme-fedberry.tar.xz
+Patch0:  %{name}-fedberry-defaults.patch
+Patch1:  %{name}-missing-entry.patch
+Patch2:  %{name}-policykit-libexec.patch
+Patch3:  %{name}-menu-redhat.patch
 
-BuildRequires: liblxqt-devel >= 0.11.0
+BuildRequires: liblxqt-devel
+BuildRequires: lxqt-build-tools
 BuildRequires: pkgconfig(Qt5Xdg)
 BuildRequires: pkgconfig(Qt5Help)
 BuildRequires: kf5-kwindowsystem-devel >= 5.5
-
 BuildRequires: desktop-file-utils
 
-Requires: oxygen-cursor-themes
+Requires: breeze-cursor-theme
 Requires: oxygen-icon-theme
 
 %if 0%{?fedora}
@@ -118,6 +115,12 @@ fi
 
 
 %changelog
+* Fri Feb 03 2017 Vaughan <devel at agrez.net> - 0.11.2-1
+- New release
+- Add buildrequires for lxqt-build-tools
+- Add requires for breeze-cursor-theme
+- Drop version from patch names
+
 * Tue Oct 18 2016 Vaughan <devel at agrez.net> - 0.11-3
 - Move lxqt-rc.xml to main package
 - Update fedberry defaults patch
