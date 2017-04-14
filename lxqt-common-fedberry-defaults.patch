@@ -35,12 +35,14 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.
  
  [Behavior]
  BookmarkOpenMethod=0
-@@ -15,8 +15,8 @@
+@@ -15,9 +15,9 @@
+ ConfirmDelete=true
  
  [Desktop]
- WallpaperMode=stretch
+-WallpaperMode=stretch
 -Wallpaper=@LXQT_SHARE_DIR@/themes/frost/lxqt-origami-light.png
 -BgColor=#000000
++WallpaperMode=zoom
 +Wallpaper=/usr/share/backgrounds/default.png
 +BgColor=#2e5ea1
  FgColor=#ffffff
