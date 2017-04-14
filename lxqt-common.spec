@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.11.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org
 BuildArch: noarch
@@ -115,6 +115,9 @@ fi
 
 
 %changelog
+* Thu Apr 13 2017 Vaughan <devel at agrez.net> - 0.11.2-4
+- Update fedberry defaults patch
+
 * Sat Feb 04 2017 Vaughan <devel at agrez.net> - 0.11.2-3
 - Bump release to keep above fedora releases
 
