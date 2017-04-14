@@ -44,7 +44,7 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.
 -BgColor=#000000
 +WallpaperMode=zoom
 +Wallpaper=/usr/share/backgrounds/default.png
-+BgColor=#2e5ea1
++BgColor=#333333
  FgColor=#ffffff
  ShadowColor=#000000
  ShowHidden=false
