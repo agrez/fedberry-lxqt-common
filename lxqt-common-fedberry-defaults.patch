@@ -16,18 +16,6 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/lxqt.conf lxqt-common-0.11.0/c
  doubleClickInterval=400
  style=Fusion
  wheelScrollLines=3
-diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/openbox/lxqt-rc.xml lxqt-common-0.11.0/config/openbox/lxqt-rc.xml
---- lxqt-common-0.11.0.orig/config/openbox/lxqt-rc.xml	2016-09-24 06:44:22.000000000 +0800
-+++ lxqt-common-0.11.0/config/openbox/lxqt-rc.xml	2016-10-18 09:15:29.098500693 +0800
-@@ -49,7 +49,7 @@
- </placement>
- 
- <theme>
--  <name>Onyx</name>
-+  <name>Bear2</name>
-   <titleLayout>NLIMC</titleLayout>
-   <!--
-       available characters are NDSLIMC, each can occur at most once.
 diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in lxqt-common-0.11.0/config/pcmanfm-qt/lxqt/settings.conf.in
 --- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in	2016-09-24 06:44:22.000000000 +0800
 +++ lxqt-common-0.11.0/config/pcmanfm-qt/lxqt/settings.conf.in	2016-10-18 09:17:27.131790364 +0800
