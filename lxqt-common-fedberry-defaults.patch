@@ -55,7 +55,7 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/session.conf lxqt-common-0.11.
  [Environment]
  GTK_CSD=0
  GTK_OVERLAY_SCROLLING=0
-+BROWSER=qupzilla
++BROWSER=chromium-browser
 +TERM=qterminal
  
  [Mouse]
