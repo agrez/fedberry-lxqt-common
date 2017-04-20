@@ -1,6 +1,20 @@
-diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/lxqt.conf lxqt-common-0.11.0/config/lxqt.conf
---- lxqt-common-0.11.0.orig/config/lxqt.conf	2016-09-24 06:44:22.000000000 +0800
-+++ lxqt-common-0.11.0/config/lxqt.conf	2016-10-16 11:59:25.222694804 +0800
+From 9e0d54cb694efd4ee2643acde7810b2ddfc88c61 Mon Sep 17 00:00:00 2001
+Message-Id: <9e0d54cb694efd4ee2643acde7810b2ddfc88c61.1492395551.git.devel@agrez.net>
+From: Vaughan Agrez <devel@agrez.net>
+Date: Mon, 17 Apr 2017 10:18:55 +0800
+Subject: [PATCH] Update FedBerry defaults
+
+---
+ config/lxqt.conf                        |  7 ++++---
+ config/pcmanfm-qt/lxqt/settings.conf.in | 14 +++++++-------
+ config/session.conf                     |  4 +++-
+ startlxqt.in                            |  2 +-
+ 4 files changed, 15 insertions(+), 12 deletions(-)
+
+diff --git a/config/lxqt.conf b/config/lxqt.conf
+index 1d48e56..57596bd 100644
+--- a/config/lxqt.conf
++++ b/config/lxqt.conf
 @@ -1,11 +1,12 @@
  [General]
 -theme=frost
@@ -14,11 +28,13 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/lxqt.conf lxqt-common-0.11.0/c
 +fixedFont="Monospace,10,-1,5,50,0,0,0,0,0"
 +font="Sans,10,-1,5,50,0,0,0,0,0"
  doubleClickInterval=400
- style=Fusion
+-style=Fusion
++style=gtk2
  wheelScrollLines=3
-diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in lxqt-common-0.11.0/config/pcmanfm-qt/lxqt/settings.conf.in
---- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.in	2016-09-24 06:44:22.000000000 +0800
-+++ lxqt-common-0.11.0/config/pcmanfm-qt/lxqt/settings.conf.in	2016-10-18 09:17:27.131790364 +0800
+diff --git a/config/pcmanfm-qt/lxqt/settings.conf.in b/config/pcmanfm-qt/lxqt/settings.conf.in
+index b7ef002..393c919 100644
+--- a/config/pcmanfm-qt/lxqt/settings.conf.in
++++ b/config/pcmanfm-qt/lxqt/settings.conf.in
 @@ -1,11 +1,11 @@
  [System]
  IconThemeName=elementary
@@ -35,7 +51,7 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.
  
  [Behavior]
  BookmarkOpenMethod=0
-@@ -15,9 +15,9 @@
+@@ -14,9 +14,9 @@ SingleClick=false
  ConfirmDelete=true
  
  [Desktop]
@@ -48,10 +64,11 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/pcmanfm-qt/lxqt/settings.conf.
  FgColor=#ffffff
  ShadowColor=#000000
  ShowHidden=false
-diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/session.conf lxqt-common-0.11.0/config/session.conf
---- lxqt-common-0.11.0.orig/config/session.conf	2016-09-24 06:44:22.000000000 +0800
-+++ lxqt-common-0.11.0/config/session.conf	2016-10-18 09:17:03.801733107 +0800
-@@ -5,10 +5,12 @@
+diff --git a/config/session.conf b/config/session.conf
+index ded6aa8..31ca54a 100644
+--- a/config/session.conf
++++ b/config/session.conf
+@@ -5,10 +5,12 @@ leave_confirmation=true
  [Environment]
  GTK_CSD=0
  GTK_OVERLAY_SCROLLING=0
@@ -65,10 +82,11 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/config/session.conf lxqt-common-0.11.
  acc_factor=20
  acc_threshold=10
  left_handed=false
-diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/startlxqt.in lxqt-common-0.11.0/startlxqt.in
---- lxqt-common-0.11.0.orig/startlxqt.in	2016-09-24 06:44:22.000000000 +0800
-+++ lxqt-common-0.11.0/startlxqt.in	2016-10-16 12:04:01.044560415 +0800
-@@ -91,7 +91,7 @@
+diff --git a/startlxqt.in b/startlxqt.in
+index 02ef0c2..9a3dd09 100755
+--- a/startlxqt.in
++++ b/startlxqt.in
+@@ -93,7 +93,7 @@ export QT_QPA_PLATFORMTHEME=lxqt
  # use lxqt-applications.menu for main app menu
  export XDG_MENU_PREFIX="lxqt-"
  
@@ -77,3 +95,6 @@ diff -U 3 -dHrN -- lxqt-common-0.11.0.orig/startlxqt.in lxqt-common-0.11.0/start
  
  # Start the LXQt session
  exec lxqt-session
+-- 
+2.9.3
+
