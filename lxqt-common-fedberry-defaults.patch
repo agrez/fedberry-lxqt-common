@@ -1,15 +1,15 @@
-From 9e0d54cb694efd4ee2643acde7810b2ddfc88c61 Mon Sep 17 00:00:00 2001
-Message-Id: <9e0d54cb694efd4ee2643acde7810b2ddfc88c61.1492395551.git.devel@agrez.net>
+From 2504b1255388d951f3b1cfadf925b12d661d070d Mon Sep 17 00:00:00 2001
+Message-Id: <2504b1255388d951f3b1cfadf925b12d661d070d.1493356387.git.devel@agrez.net>
 From: Vaughan Agrez <devel@agrez.net>
-Date: Mon, 17 Apr 2017 10:18:55 +0800
-Subject: [PATCH] Update FedBerry defaults
+Date: Fri, 28 Apr 2017 13:13:02 +0800
+Subject: [PATCH] Fedberry Defaults
 
 ---
  config/lxqt.conf                        |  7 ++++---
- config/pcmanfm-qt/lxqt/settings.conf.in | 14 +++++++-------
+ config/pcmanfm-qt/lxqt/settings.conf.in | 21 ++++++++++-----------
  config/session.conf                     |  4 +++-
  startlxqt.in                            |  2 +-
- 4 files changed, 15 insertions(+), 12 deletions(-)
+ 4 files changed, 18 insertions(+), 16 deletions(-)
 
 diff --git a/config/lxqt.conf b/config/lxqt.conf
 index 1d48e56..57596bd 100644
@@ -32,26 +32,28 @@ index 1d48e56..57596bd 100644
 +style=gtk2
  wheelScrollLines=3
 diff --git a/config/pcmanfm-qt/lxqt/settings.conf.in b/config/pcmanfm-qt/lxqt/settings.conf.in
-index b7ef002..393c919 100644
+index b7ef002..929c5b9 100644
 --- a/config/pcmanfm-qt/lxqt/settings.conf.in
 +++ b/config/pcmanfm-qt/lxqt/settings.conf.in
-@@ -1,11 +1,11 @@
+@@ -1,22 +1,21 @@
  [System]
- IconThemeName=elementary
+-IconThemeName=elementary
++FallbackIconThemeName=oxygen
  SuCommand=lxqt-sudo %s
 -TerminalCommand=
 -Archiver=file-roller
-+TerminalCommand=qterminal
++Terminal=qterminal
 +Archiver=xarchiver
  SIUnit=false
 -TerminalDirCommand=xterm
 -TerminalExecCommand=xterm -e %s
-+TerminalDirCommand=qterminal
-+TerminalExecCommand=qterminal -e %s
  
  [Behavior]
  BookmarkOpenMethod=0
-@@ -14,9 +14,9 @@ SingleClick=false
+ UseTrash=true
+-SingleClick=false
++SingleClick=true
++AutoSelectionDelay=0
  ConfirmDelete=true
  
  [Desktop]
@@ -64,6 +66,17 @@ index b7ef002..393c919 100644
  FgColor=#ffffff
  ShadowColor=#000000
  ShowHidden=false
+@@ -40,8 +39,8 @@ SidePaneIconSize=24
+ ThumbnailIconSize=128
+ 
+ [Window]
+-Width=640
+-Height=480
++FixedWidth=800
++FixedHeight=600
+ AlwaysShowTabs=false
+ ShowTabClose=true
+ SplitterPos=150
 diff --git a/config/session.conf b/config/session.conf
 index ded6aa8..31ca54a 100644
 --- a/config/session.conf
