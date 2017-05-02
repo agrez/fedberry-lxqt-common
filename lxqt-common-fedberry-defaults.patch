@@ -1,25 +1,26 @@
-From 2504b1255388d951f3b1cfadf925b12d661d070d Mon Sep 17 00:00:00 2001
-Message-Id: <2504b1255388d951f3b1cfadf925b12d661d070d.1493356387.git.devel@agrez.net>
+From 324f38b48da8b1c8dbd9d88a87a6af5da104a8b2 Mon Sep 17 00:00:00 2001
+Message-Id: <324f38b48da8b1c8dbd9d88a87a6af5da104a8b2.1493705156.git.devel@agrez.net>
 From: Vaughan Agrez <devel@agrez.net>
-Date: Fri, 28 Apr 2017 13:13:02 +0800
+Date: Tue, 2 May 2017 14:05:50 +0800
 Subject: [PATCH] Fedberry Defaults
 
 ---
- config/lxqt.conf                        |  7 ++++---
+ config/lxqt.conf                        |  9 +++++----
  config/pcmanfm-qt/lxqt/settings.conf.in | 21 ++++++++++-----------
  config/session.conf                     |  4 +++-
  startlxqt.in                            |  2 +-
- 4 files changed, 18 insertions(+), 16 deletions(-)
+ 4 files changed, 19 insertions(+), 17 deletions(-)
 
 diff --git a/config/lxqt.conf b/config/lxqt.conf
-index 1d48e56..57596bd 100644
+index 1d48e56..b7bbc41 100644
 --- a/config/lxqt.conf
 +++ b/config/lxqt.conf
 @@ -1,11 +1,12 @@
  [General]
 -theme=frost
+-icon_theme=oxygen
 +theme=fedberry
- icon_theme=oxygen
++icon_theme=breeze
  single_click_activate=false
  tool_button_style=ToolButtonTextBesideIcon
  
