@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.11.2
-Release: 6%{?dist}
+Release: 7%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org
 BuildArch: noarch
@@ -115,6 +115,9 @@ fi
 
 
 %changelog
+* Tue May 02 2017 Vaughan <devel at agrez.net> - 0.11.2-7
+- Default to using breeze icon theme
+
 * Fri Apr 28 2017 Vaughan <devel at agrez.net> - 0.11.2-6
 - Update defaults for pcmanfm-qt
 
