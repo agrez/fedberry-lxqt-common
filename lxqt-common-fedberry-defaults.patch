@@ -1,15 +1,15 @@
-From 324f38b48da8b1c8dbd9d88a87a6af5da104a8b2 Mon Sep 17 00:00:00 2001
-Message-Id: <324f38b48da8b1c8dbd9d88a87a6af5da104a8b2.1493705156.git.devel@agrez.net>
+From 185f3e147c66f4c50fd0813d958cffdcd680e0f3 Mon Sep 17 00:00:00 2001
+Message-Id: <185f3e147c66f4c50fd0813d958cffdcd680e0f3.1494203471.git.devel@agrez.net>
 From: Vaughan Agrez <devel@agrez.net>
-Date: Tue, 2 May 2017 14:05:50 +0800
+Date: Mon, 8 May 2017 08:30:54 +0800
 Subject: [PATCH] Fedberry Defaults
 
 ---
  config/lxqt.conf                        |  9 +++++----
- config/pcmanfm-qt/lxqt/settings.conf.in | 21 ++++++++++-----------
+ config/pcmanfm-qt/lxqt/settings.conf.in | 23 +++++++++++------------
  config/session.conf                     |  4 +++-
  startlxqt.in                            |  2 +-
- 4 files changed, 19 insertions(+), 17 deletions(-)
+ 4 files changed, 20 insertions(+), 18 deletions(-)
 
 diff --git a/config/lxqt.conf b/config/lxqt.conf
 index 1d48e56..b7bbc41 100644
@@ -33,16 +33,17 @@ index 1d48e56..b7bbc41 100644
 +style=gtk2
  wheelScrollLines=3
 diff --git a/config/pcmanfm-qt/lxqt/settings.conf.in b/config/pcmanfm-qt/lxqt/settings.conf.in
-index b7ef002..929c5b9 100644
+index b7ef002..0c6ce8c 100644
 --- a/config/pcmanfm-qt/lxqt/settings.conf.in
 +++ b/config/pcmanfm-qt/lxqt/settings.conf.in
 @@ -1,22 +1,21 @@
  [System]
 -IconThemeName=elementary
-+FallbackIconThemeName=oxygen
- SuCommand=lxqt-sudo %s
+-SuCommand=lxqt-sudo %s
 -TerminalCommand=
 -Archiver=file-roller
++FallbackIconThemeName=oxygen
++SuCommand=lxqt-sudo -s %s
 +Terminal=qterminal
 +Archiver=xarchiver
  SIUnit=false
