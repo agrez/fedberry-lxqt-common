@@ -1,15 +1,15 @@
-From 185f3e147c66f4c50fd0813d958cffdcd680e0f3 Mon Sep 17 00:00:00 2001
-Message-Id: <185f3e147c66f4c50fd0813d958cffdcd680e0f3.1494203471.git.devel@agrez.net>
+From 3ab92db76f5facc180d645e759e4b045b80b7208 Mon Sep 17 00:00:00 2001
+Message-Id: <3ab92db76f5facc180d645e759e4b045b80b7208.1494764115.git.devel@agrez.net>
 From: Vaughan Agrez <devel@agrez.net>
-Date: Mon, 8 May 2017 08:30:54 +0800
-Subject: [PATCH] Fedberry Defaults
+Date: Sun, 14 May 2017 20:15:07 +0800
+Subject: [PATCH] Fedberry defaults
 
 ---
- config/lxqt.conf                        |  9 +++++----
- config/pcmanfm-qt/lxqt/settings.conf.in | 23 +++++++++++------------
- config/session.conf                     |  4 +++-
- startlxqt.in                            |  2 +-
- 4 files changed, 20 insertions(+), 18 deletions(-)
+ config/lxqt.conf                        |   9 +--
+ config/pcmanfm-qt/lxqt/settings.conf.in | 101 +++++++++++++++++++++-----------
+ config/session.conf                     |   4 +-
+ startlxqt.in                            |   2 +-
+ 4 files changed, 76 insertions(+), 40 deletions(-)
 
 diff --git a/config/lxqt.conf b/config/lxqt.conf
 index 1d48e56..b7bbc41 100644
@@ -33,52 +33,132 @@ index 1d48e56..b7bbc41 100644
 +style=gtk2
  wheelScrollLines=3
 diff --git a/config/pcmanfm-qt/lxqt/settings.conf.in b/config/pcmanfm-qt/lxqt/settings.conf.in
-index b7ef002..0c6ce8c 100644
+old mode 100644
+new mode 100755
+index b7ef002..07961e1
 --- a/config/pcmanfm-qt/lxqt/settings.conf.in
 +++ b/config/pcmanfm-qt/lxqt/settings.conf.in
-@@ -1,22 +1,21 @@
- [System]
+@@ -1,53 +1,86 @@
+-[System]
 -IconThemeName=elementary
 -SuCommand=lxqt-sudo %s
 -TerminalCommand=
 -Archiver=file-roller
-+FallbackIconThemeName=oxygen
-+SuCommand=lxqt-sudo -s %s
-+Terminal=qterminal
-+Archiver=xarchiver
- SIUnit=false
+-SIUnit=false
 -TerminalDirCommand=xterm
 -TerminalExecCommand=xterm -e %s
- 
+-
  [Behavior]
- BookmarkOpenMethod=0
- UseTrash=true
+-BookmarkOpenMethod=0
+-UseTrash=true
 -SingleClick=false
-+SingleClick=true
 +AutoSelectionDelay=0
++BookmarkOpenMethod=current_tab
  ConfirmDelete=true
++ConfirmTrash=false
++NoUsbTrash=false
++QuickExec=false
++SingleClick=true
++UseTrash=true
  
  [Desktop]
 -WallpaperMode=stretch
 -Wallpaper=@LXQT_SHARE_DIR@/themes/frost/lxqt-origami-light.png
 -BgColor=#000000
-+WallpaperMode=zoom
-+Wallpaper=/usr/share/backgrounds/default.png
 +BgColor=#333333
++DesktopCellMargins=@Size(3 1)
++DesktopIconSize=48
  FgColor=#ffffff
++Font="Sans Serif,10,-1,5,50,0,0,0,0,0"
  ShadowColor=#000000
  ShowHidden=false
-@@ -40,8 +39,8 @@ SidePaneIconSize=24
+-SortOrder=ascending
++ShowWmMenu=false
+ SortColumn=name
+-Font="Sans Serif,10,-1,5,50,0,0,0,0,0"
+-
+-[Volume]
+-MountOnStartup=true
+-MountRemovable=true
+-AutoRun=true
++SortFolderFirst=true
++SortOrder=ascending
++Wallpaper=/usr/share/backgrounds/default.png
++WallpaperMode=zoom
+ 
+ [FolderView]
++BackupAsHidden=false
++BigIconSize=48
++FolderViewCellMargins=@Size(3 3)
+ Mode=icon
++ShadowHidden=false
++ShowFilter=false
++ShowFullNames=false
+ ShowHidden=false
+-SortOrder=ascending
+-SortColumn=name
+-BigIconSize=48
+-SmallIconSize=24
+ SidePaneIconSize=24
++SmallIconSize=24
++SortCaseSensitive=false
++SortColumn=name
++SortFolderFirst=true
++SortOrder=ascending
  ThumbnailIconSize=128
  
- [Window]
+-[Window]
 -Width=640
 -Height=480
-+FixedWidth=800
+-AlwaysShowTabs=false
+-ShowTabClose=true
+-SplitterPos=150
+-SidePaneMode=0
++[Places]
++PlacesApplications=true
++PlacesComputer=true
++PlacesDesktop=true
++PlacesHome=true
++PlacesNetwork=true
++PlacesRoot=true
++PlacesTrash=true
++
++[System]
++Archiver=xarchiver
++FallbackIconThemeName=oxygen
++OnlyUserTemplates=false
++SIUnit=false
++SuCommand=lxqt-sudo -s %s
++TemplateRunApp=false
++TemplateTypeOnce=false
++Terminal=qterminal
+ 
+ [Thumbnail]
+-ShowThumbnails=true
+ MaxThumbnailFileSize=4096
++ShowThumbnails=true
+ ThumbnailLocalFilesOnly=true
++
++[Volume]
++AutoRun=true
++CloseOnUnmount=true
++MountOnStartup=true
++MountRemovable=true
++
++[Window]
++AlwaysShowTabs=false
 +FixedHeight=600
- AlwaysShowTabs=false
- ShowTabClose=true
- SplitterPos=150
++FixedWidth=800
++FullWidthTabBar=true
++LastWindowHeight=654
++LastWindowMaximized=false
++LastWindowWidth=885
++PathBarButtons=true
++RememberWindowSize=true
++ShowMenuBar=true
++ShowTabClose=true
++SidePaneMode=places
++SplitterPos=177
 diff --git a/config/session.conf b/config/session.conf
 index ded6aa8..31ca54a 100644
 --- a/config/session.conf
