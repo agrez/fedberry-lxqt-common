@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.11.2
-Release: 8%{?dist}
+Release: 9%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org
 BuildArch: noarch
@@ -115,6 +115,10 @@ fi
 
 
 %changelog
+* Sun May 14 2017 Vaughan <devel at agrez.net> - 0.11.2-9
+- Update Fedberry theme
+- Update fedberry defaults patch
+
 * Mon May 08 2017 Vaughan <devel at agrez.net> - 0.11.2-8
 - Update fedberry defaults patch (make lxqt-sudo use su backend)
 
