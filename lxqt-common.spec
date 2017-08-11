@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.11.2
-Release: 9%{?dist}
+Release: 10%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org
 BuildArch: noarch
@@ -65,9 +65,14 @@ popd
 
 %install
 make install/fast DESTDIR=%{buildroot} -C %{_target_platform}
+
+#Conflicts with new compton-conf
+rm -f %{buildroot}%{_sysconfdir}/xdg/autostart/lxqt-compton.desktop
+
 for desktop in %{buildroot}%{_sysconfdir}/xdg/autostart/*.desktop; do
 	desktop-file-edit --remove-only-show-in=LXQt --add-only-show-in=X-LXQt ${desktop}
 done
+
 # FedBerry theme
 pushd %{buildroot}/%{_datadir}/lxqt/themes/ 
 	tar	xfJ %{SOURCE1}
@@ -115,6 +120,9 @@ fi
 
 
 %changelog
+* Fri Aug 11 2017 Vaughan <devel at agrez.net> - 0.11.2-10
+- Fix conflict with updated compton-conf
+
 * Sun May 14 2017 Vaughan <devel at agrez.net> - 0.11.2-9
 - Update Fedberry theme
 - Update fedberry defaults patch
