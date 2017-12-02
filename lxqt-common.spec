@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.11.2
-Release: 10%{?dist}
+Release: 11%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org
 BuildArch: noarch
@@ -120,6 +120,9 @@ fi
 
 
 %changelog
+* Fri Dec 01 2017 Vaughan <devel at agrez.net> - 0.11.2-11
+- Set default web browser to firefox
+
 * Fri Aug 11 2017 Vaughan <devel at agrez.net> - 0.11.2-10
 - Fix conflict with updated compton-conf
 
