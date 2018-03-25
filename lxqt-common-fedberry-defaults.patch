@@ -167,7 +167,7 @@ index ded6aa8..31ca54a 100644
  [Environment]
  GTK_CSD=0
  GTK_OVERLAY_SCROLLING=0
-+BROWSER=firefox
++BROWSER=chromium-browser
 +TERM=qterminal
  
  [Mouse]
