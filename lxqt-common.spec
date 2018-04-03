@@ -1,7 +1,7 @@
 Name:    lxqt-common
 Summary: Common resources for LXQt desktop suite
 Version: 0.11.2
-Release: 12%{?dist}
+Release: 13%{?dist}
 License: LGPLv2+
 URL:     http://lxqt.org
 BuildArch: noarch
@@ -120,6 +120,9 @@ fi
 
 
 %changelog
+* Sun Apr 01 2018 Vaughan <devel at agrez.net> - 0.11.2-13
+- Update fedberry defaults patch
+
 * Sun Mar 25 2018 Vaughan <devel at agrez.net> - 0.11.2-12
 - Revert default web browser to chromium
 
